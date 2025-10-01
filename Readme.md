@@ -1,2 +1,2 @@
 ```bash
-go get github.com/duyhung2k4/sale-tickets-golang-common
+go get github.com/sale-tickets/golang-common
