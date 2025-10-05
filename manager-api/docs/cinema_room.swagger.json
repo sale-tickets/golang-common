@@ -260,16 +260,16 @@
         "uuid": {
           "type": "string"
         },
-        "movieTheaterId": {
-          "type": "string"
-        },
-        "code": {
-          "type": "string"
-        },
         "createdAt": {
           "type": "string"
         },
         "updatedAt": {
+          "type": "string"
+        },
+        "movieTheaterId": {
+          "type": "string"
+        },
+        "code": {
           "type": "string"
         }
       }

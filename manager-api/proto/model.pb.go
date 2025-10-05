@@ -24,10 +24,10 @@ const (
 type CinemaRoomModel struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Uuid           string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
-	MovieTheaterId string                 `protobuf:"bytes,2,opt,name=movie_theater_id,json=movieTheaterId,proto3" json:"movie_theater_id,omitempty"`
-	Code           string                 `protobuf:"bytes,3,opt,name=code,proto3" json:"code,omitempty"`
-	CreatedAt      string                 `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt      string                 `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	CreatedAt      string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt      string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	MovieTheaterId string                 `protobuf:"bytes,4,opt,name=movie_theater_id,json=movieTheaterId,proto3" json:"movie_theater_id,omitempty"`
+	Code           string                 `protobuf:"bytes,5,opt,name=code,proto3" json:"code,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -69,20 +69,6 @@ func (x *CinemaRoomModel) GetUuid() string {
 	return ""
 }
 
-func (x *CinemaRoomModel) GetMovieTheaterId() string {
-	if x != nil {
-		return x.MovieTheaterId
-	}
-	return ""
-}
-
-func (x *CinemaRoomModel) GetCode() string {
-	if x != nil {
-		return x.Code
-	}
-	return ""
-}
-
 func (x *CinemaRoomModel) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
@@ -97,19 +83,218 @@ func (x *CinemaRoomModel) GetUpdatedAt() string {
 	return ""
 }
 
+func (x *CinemaRoomModel) GetMovieTheaterId() string {
+	if x != nil {
+		return x.MovieTheaterId
+	}
+	return ""
+}
+
+func (x *CinemaRoomModel) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+type MovieTheaterModel struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Address       string                 `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MovieTheaterModel) Reset() {
+	*x = MovieTheaterModel{}
+	mi := &file_manager_api_api_model_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MovieTheaterModel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MovieTheaterModel) ProtoMessage() {}
+
+func (x *MovieTheaterModel) ProtoReflect() protoreflect.Message {
+	mi := &file_manager_api_api_model_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MovieTheaterModel.ProtoReflect.Descriptor instead.
+func (*MovieTheaterModel) Descriptor() ([]byte, []int) {
+	return file_manager_api_api_model_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *MovieTheaterModel) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
+func (x *MovieTheaterModel) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *MovieTheaterModel) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+func (x *MovieTheaterModel) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *MovieTheaterModel) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+type TheaterSeatingModel struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Uuid             string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	CreatedAt        string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CinemaRoomId     string                 `protobuf:"bytes,3,opt,name=cinema_room_id,json=cinemaRoomId,proto3" json:"cinema_room_id,omitempty"`
+	GroupSeatingUuid []string               `protobuf:"bytes,4,rep,name=group_seating_uuid,json=groupSeatingUuid,proto3" json:"group_seating_uuid,omitempty"`
+	Name             string                 `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
+	RowIndex         string                 `protobuf:"bytes,6,opt,name=row_index,json=rowIndex,proto3" json:"row_index,omitempty"`
+	ColIndex         string                 `protobuf:"bytes,7,opt,name=col_index,json=colIndex,proto3" json:"col_index,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *TheaterSeatingModel) Reset() {
+	*x = TheaterSeatingModel{}
+	mi := &file_manager_api_api_model_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TheaterSeatingModel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TheaterSeatingModel) ProtoMessage() {}
+
+func (x *TheaterSeatingModel) ProtoReflect() protoreflect.Message {
+	mi := &file_manager_api_api_model_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TheaterSeatingModel.ProtoReflect.Descriptor instead.
+func (*TheaterSeatingModel) Descriptor() ([]byte, []int) {
+	return file_manager_api_api_model_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *TheaterSeatingModel) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
+func (x *TheaterSeatingModel) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *TheaterSeatingModel) GetCinemaRoomId() string {
+	if x != nil {
+		return x.CinemaRoomId
+	}
+	return ""
+}
+
+func (x *TheaterSeatingModel) GetGroupSeatingUuid() []string {
+	if x != nil {
+		return x.GroupSeatingUuid
+	}
+	return nil
+}
+
+func (x *TheaterSeatingModel) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *TheaterSeatingModel) GetRowIndex() string {
+	if x != nil {
+		return x.RowIndex
+	}
+	return ""
+}
+
+func (x *TheaterSeatingModel) GetColIndex() string {
+	if x != nil {
+		return x.ColIndex
+	}
+	return ""
+}
+
 var File_manager_api_api_model_proto protoreflect.FileDescriptor
 
 const file_manager_api_api_model_proto_rawDesc = "" +
 	"\n" +
 	"\x1bmanager-api/api/model.proto\x12\x05model\"\xa1\x01\n" +
 	"\x0fCinemaRoomModel\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12(\n" +
-	"\x10movie_theater_id\x18\x02 \x01(\tR\x0emovieTheaterId\x12\x12\n" +
-	"\x04code\x18\x03 \x01(\tR\x04code\x12\x1d\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x04 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x05 \x01(\tR\tupdatedAtB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12(\n" +
+	"\x10movie_theater_id\x18\x04 \x01(\tR\x0emovieTheaterId\x12\x12\n" +
+	"\x04code\x18\x05 \x01(\tR\x04code\"\x93\x01\n" +
+	"\x11MovieTheaterModel\x12\x12\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\x12\n" +
+	"\x04name\x18\x04 \x01(\tR\x04name\x12\x18\n" +
+	"\aaddress\x18\x05 \x01(\tR\aaddress\"\xea\x01\n" +
+	"\x13TheaterSeatingModel\x12\x12\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12$\n" +
+	"\x0ecinema_room_id\x18\x03 \x01(\tR\fcinemaRoomId\x12,\n" +
+	"\x12group_seating_uuid\x18\x04 \x03(\tR\x10groupSeatingUuid\x12\x12\n" +
+	"\x04name\x18\x05 \x01(\tR\x04name\x12\x1b\n" +
+	"\trow_index\x18\x06 \x01(\tR\browIndex\x12\x1b\n" +
+	"\tcol_index\x18\a \x01(\tR\bcolIndexB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_model_proto_rawDescOnce sync.Once
@@ -123,9 +308,11 @@ func file_manager_api_api_model_proto_rawDescGZIP() []byte {
 	return file_manager_api_api_model_proto_rawDescData
 }
 
-var file_manager_api_api_model_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_manager_api_api_model_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_manager_api_api_model_proto_goTypes = []any{
-	(*CinemaRoomModel)(nil), // 0: model.CinemaRoomModel
+	(*CinemaRoomModel)(nil),     // 0: model.CinemaRoomModel
+	(*MovieTheaterModel)(nil),   // 1: model.MovieTheaterModel
+	(*TheaterSeatingModel)(nil), // 2: model.TheaterSeatingModel
 }
 var file_manager_api_api_model_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -146,7 +333,7 @@ func file_manager_api_api_model_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_manager_api_api_model_proto_rawDesc), len(file_manager_api_api_model_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

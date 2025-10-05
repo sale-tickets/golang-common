@@ -6,8 +6,26 @@ option go_package = "./manager-api/proto;manager_api";
 
 message CinemaRoomModel {
     string uuid = 1;
-    string movie_theater_id = 2;
-    string code = 3;
-    string created_at = 4;
-    string updated_at = 5;
+    string created_at = 2;
+    string updated_at = 3;
+    string movie_theater_id = 4;
+    string code = 5;
+}
+
+message MovieTheaterModel {
+    string uuid = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    string name = 4;
+    string address = 5;
+}
+
+message TheaterSeatingModel {
+    string uuid = 1;
+    string created_at = 2;
+    string cinema_room_id = 3;
+    repeated string group_seating_uuid = 4;
+    string name = 5;
+    string row_index = 6;
+    string col_index = 7;
 }

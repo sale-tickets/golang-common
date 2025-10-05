@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package theater_seating;
+
+option go_package = "./manager-api/proto;manager_api";
+
+import "manager-api/api/model.proto";
+import "manager-api/api/common.proto";
+
+// api: create theater seating
+message CreateTheaterSeatingReq {
+    string cinema_room_id = 1;
+    repeated model.TheaterSeatingModel theaters = 2;
+}
+
+message CreateTheaterSeatingRes {
+    repeated string list_id = 1;
+}
+// api: update theater seating
+message UpdateTheaterSeatingReq {
+    repeated string list_id = 1;
+    bool is_ignore = 2;
+    repeated model.TheaterSeatingModel theaters = 3;
+}
+
+message UpdateTheaterSeatingRes {
+    repeated string list_id = 1;
+}
+// api: list theater seating
+message FilterListTheaterSeating {
+
+}
+message ListTheaterSeatingReq {
+    common.FilterBase filter_base = 1;
+    FilterListTheaterSeating filter = 2;
+}
