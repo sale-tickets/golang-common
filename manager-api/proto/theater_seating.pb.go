@@ -312,6 +312,58 @@ func (x *ListTheaterSeatingReq) GetFilter() *FilterListTheaterSeating {
 	return nil
 }
 
+type ListTheaterSeatingRes struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Total         int32                  `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"`
+	Data          []*TheaterSeatingModel `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListTheaterSeatingRes) Reset() {
+	*x = ListTheaterSeatingRes{}
+	mi := &file_manager_api_api_theater_seating_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListTheaterSeatingRes) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListTheaterSeatingRes) ProtoMessage() {}
+
+func (x *ListTheaterSeatingRes) ProtoReflect() protoreflect.Message {
+	mi := &file_manager_api_api_theater_seating_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListTheaterSeatingRes.ProtoReflect.Descriptor instead.
+func (*ListTheaterSeatingRes) Descriptor() ([]byte, []int) {
+	return file_manager_api_api_theater_seating_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ListTheaterSeatingRes) GetTotal() int32 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+func (x *ListTheaterSeatingRes) GetData() []*TheaterSeatingModel {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
 var File_manager_api_api_theater_seating_proto protoreflect.FileDescriptor
 
 const file_manager_api_api_theater_seating_proto_rawDesc = "" +
@@ -332,7 +384,10 @@ const file_manager_api_api_theater_seating_proto_rawDesc = "" +
 	"\x15ListTheaterSeatingReq\x123\n" +
 	"\vfilter_base\x18\x01 \x01(\v2\x12.common.FilterBaseR\n" +
 	"filterBase\x12A\n" +
-	"\x06filter\x18\x02 \x01(\v2).theater_seating.FilterListTheaterSeatingR\x06filterB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\x06filter\x18\x02 \x01(\v2).theater_seating.FilterListTheaterSeatingR\x06filter\"]\n" +
+	"\x15ListTheaterSeatingRes\x12\x14\n" +
+	"\x05total\x18\x01 \x01(\x05R\x05total\x12.\n" +
+	"\x04data\x18\x02 \x03(\v2\x1a.model.TheaterSeatingModelR\x04dataB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_theater_seating_proto_rawDescOnce sync.Once
@@ -346,7 +401,7 @@ func file_manager_api_api_theater_seating_proto_rawDescGZIP() []byte {
 	return file_manager_api_api_theater_seating_proto_rawDescData
 }
 
-var file_manager_api_api_theater_seating_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_manager_api_api_theater_seating_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_manager_api_api_theater_seating_proto_goTypes = []any{
 	(*CreateTheaterSeatingReq)(nil),  // 0: theater_seating.CreateTheaterSeatingReq
 	(*CreateTheaterSeatingRes)(nil),  // 1: theater_seating.CreateTheaterSeatingRes
@@ -354,19 +409,21 @@ var file_manager_api_api_theater_seating_proto_goTypes = []any{
 	(*UpdateTheaterSeatingRes)(nil),  // 3: theater_seating.UpdateTheaterSeatingRes
 	(*FilterListTheaterSeating)(nil), // 4: theater_seating.FilterListTheaterSeating
 	(*ListTheaterSeatingReq)(nil),    // 5: theater_seating.ListTheaterSeatingReq
-	(*TheaterSeatingModel)(nil),      // 6: model.TheaterSeatingModel
-	(*FilterBase)(nil),               // 7: common.FilterBase
+	(*ListTheaterSeatingRes)(nil),    // 6: theater_seating.ListTheaterSeatingRes
+	(*TheaterSeatingModel)(nil),      // 7: model.TheaterSeatingModel
+	(*FilterBase)(nil),               // 8: common.FilterBase
 }
 var file_manager_api_api_theater_seating_proto_depIdxs = []int32{
-	6, // 0: theater_seating.CreateTheaterSeatingReq.theaters:type_name -> model.TheaterSeatingModel
-	6, // 1: theater_seating.UpdateTheaterSeatingReq.theaters:type_name -> model.TheaterSeatingModel
-	7, // 2: theater_seating.ListTheaterSeatingReq.filter_base:type_name -> common.FilterBase
+	7, // 0: theater_seating.CreateTheaterSeatingReq.theaters:type_name -> model.TheaterSeatingModel
+	7, // 1: theater_seating.UpdateTheaterSeatingReq.theaters:type_name -> model.TheaterSeatingModel
+	8, // 2: theater_seating.ListTheaterSeatingReq.filter_base:type_name -> common.FilterBase
 	4, // 3: theater_seating.ListTheaterSeatingReq.filter:type_name -> theater_seating.FilterListTheaterSeating
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	7, // 4: theater_seating.ListTheaterSeatingRes.data:type_name -> model.TheaterSeatingModel
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_manager_api_api_theater_seating_proto_init() }
@@ -382,7 +439,7 @@ func file_manager_api_api_theater_seating_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_manager_api_api_theater_seating_proto_rawDesc), len(file_manager_api_api_theater_seating_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

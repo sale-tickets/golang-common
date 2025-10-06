@@ -30,7 +30,13 @@ message UpdateTheaterSeatingRes {
 message FilterListTheaterSeating {
 
 }
+
 message ListTheaterSeatingReq {
     common.FilterBase filter_base = 1;
     FilterListTheaterSeating filter = 2;
+}
+
+message ListTheaterSeatingRes {
+    int32 total = 1;
+    repeated model.TheaterSeatingModel data = 2;
 }
