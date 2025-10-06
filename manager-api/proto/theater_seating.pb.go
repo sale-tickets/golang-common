@@ -7,6 +7,7 @@
 package manager_api
 
 import (
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -376,7 +377,7 @@ var File_manager_api_api_theater_seating_proto protoreflect.FileDescriptor
 
 const file_manager_api_api_theater_seating_proto_rawDesc = "" +
 	"\n" +
-	"%manager-api/api/theater_seating.proto\x12\x0ftheater_seating\x1a\x1bmanager-api/api/model.proto\x1a\x1cmanager-api/api/common.proto\"w\n" +
+	"%manager-api/api/theater_seating.proto\x12\x0ftheater_seating\x1a\x1bmanager-api/api/model.proto\x1a\x1cmanager-api/api/common.proto\x1a(third-party/google/api/annotations.proto\"w\n" +
 	"\x17CreateTheaterSeatingReq\x12$\n" +
 	"\x0ecinema_room_id\x18\x01 \x01(\tR\fcinemaRoomId\x126\n" +
 	"\btheaters\x18\x02 \x03(\v2\x1a.model.TheaterSeatingModelR\btheaters\"2\n" +
@@ -396,7 +397,10 @@ const file_manager_api_api_theater_seating_proto_rawDesc = "" +
 	"\x06filter\x18\x02 \x01(\v2).theater_seating.FilterListTheaterSeatingR\x06filter\"]\n" +
 	"\x15ListTheaterSeatingRes\x12\x14\n" +
 	"\x05total\x18\x01 \x01(\x05R\x05total\x12.\n" +
-	"\x04data\x18\x02 \x03(\v2\x1a.model.TheaterSeatingModelR\x04dataB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\x04data\x18\x02 \x03(\v2\x1a.model.TheaterSeatingModelR\x04data2\xb3\x02\n" +
+	"\x0eTheaterSeating\x12\x95\x01\n" +
+	"\x14CreateTheaterSeating\x12(.theater_seating.CreateTheaterSeatingReq\x1a(.theater_seating.CreateTheaterSeatingRes\")\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/api/v1/theater-seating/create\x12\x88\x01\n" +
+	"\x12ListTheaterSeating\x12&.theater_seating.ListTheaterSeatingReq\x1a&.theater_seating.ListTheaterSeatingRes\"\"\x82\xd3\xe4\x93\x02\x1c:\x01*\"\x17/api/v1/theater-seatingB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_theater_seating_proto_rawDescOnce sync.Once
@@ -428,8 +432,12 @@ var file_manager_api_api_theater_seating_proto_depIdxs = []int32{
 	8, // 2: theater_seating.ListTheaterSeatingReq.filter_base:type_name -> common.FilterBase
 	4, // 3: theater_seating.ListTheaterSeatingReq.filter:type_name -> theater_seating.FilterListTheaterSeating
 	7, // 4: theater_seating.ListTheaterSeatingRes.data:type_name -> model.TheaterSeatingModel
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
+	0, // 5: theater_seating.TheaterSeating.CreateTheaterSeating:input_type -> theater_seating.CreateTheaterSeatingReq
+	5, // 6: theater_seating.TheaterSeating.ListTheaterSeating:input_type -> theater_seating.ListTheaterSeatingReq
+	1, // 7: theater_seating.TheaterSeating.CreateTheaterSeating:output_type -> theater_seating.CreateTheaterSeatingRes
+	6, // 8: theater_seating.TheaterSeating.ListTheaterSeating:output_type -> theater_seating.ListTheaterSeatingRes
+	7, // [7:9] is the sub-list for method output_type
+	5, // [5:7] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name
 	5, // [5:5] is the sub-list for extension extendee
 	0, // [0:5] is the sub-list for field type_name
@@ -450,7 +458,7 @@ func file_manager_api_api_theater_seating_proto_init() {
 			NumEnums:      0,
 			NumMessages:   7,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_manager_api_api_theater_seating_proto_goTypes,
 		DependencyIndexes: file_manager_api_api_theater_seating_proto_depIdxs,

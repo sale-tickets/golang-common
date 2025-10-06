@@ -6,6 +6,7 @@ option go_package = "./manager-api/proto;manager_api";
 
 import "manager-api/api/model.proto";
 import "manager-api/api/common.proto";
+import "third-party/google/api/annotations.proto";
 
 // api: create theater seating
 message CreateTheaterSeatingReq {
@@ -39,4 +40,19 @@ message ListTheaterSeatingReq {
 message ListTheaterSeatingRes {
     int32 total = 1;
     repeated model.TheaterSeatingModel data = 2;
+}
+
+service TheaterSeating {
+    rpc CreateTheaterSeating (CreateTheaterSeatingReq) returns (CreateTheaterSeatingRes) {
+        option (google.api.http) = {
+            post: "/api/v1/theater-seating/create"
+            body: "*"
+        };
+    };
+    rpc ListTheaterSeating (ListTheaterSeatingReq) returns (ListTheaterSeatingRes) {
+        option (google.api.http) = {
+            post: "/api/v1/theater-seating"
+            body: "*"
+        };
+    };
 }

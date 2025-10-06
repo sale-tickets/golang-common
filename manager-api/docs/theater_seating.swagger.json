@@ -4,14 +4,126 @@
     "title": "manager-api/api/theater_seating.proto",
     "version": "version not set"
   },
+  "tags": [
+    {
+      "name": "TheaterSeating"
+    }
+  ],
   "consumes": [
     "application/json"
   ],
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/api/v1/theater-seating": {
+      "post": {
+        "operationId": "TheaterSeating_ListTheaterSeating",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/theater_seatingListTheaterSeatingRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/theater_seatingListTheaterSeatingReq"
+            }
+          }
+        ],
+        "tags": [
+          "TheaterSeating"
+        ]
+      }
+    },
+    "/api/v1/theater-seating/create": {
+      "post": {
+        "operationId": "TheaterSeating_CreateTheaterSeating",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/theater_seatingCreateTheaterSeatingRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/theater_seatingCreateTheaterSeatingReq"
+            }
+          }
+        ],
+        "tags": [
+          "TheaterSeating"
+        ]
+      }
+    }
+  },
   "definitions": {
+    "commonFilterBase": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "modelTheaterSeatingModel": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "cinemaRoomId": {
+          "type": "string"
+        },
+        "groupSeatingUuid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "rowIndex": {
+          "type": "string"
+        },
+        "colIndex": {
+          "type": "string"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -36,6 +148,69 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "theater_seatingCreateTheaterSeatingReq": {
+      "type": "object",
+      "properties": {
+        "cinemaRoomId": {
+          "type": "string"
+        },
+        "theaters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/modelTheaterSeatingModel"
+          }
+        }
+      },
+      "title": "api: create theater seating"
+    },
+    "theater_seatingCreateTheaterSeatingRes": {
+      "type": "object",
+      "properties": {
+        "listId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "theater_seatingFilterListTheaterSeating": {
+      "type": "object",
+      "properties": {
+        "cinemaRoomId": {
+          "type": "string"
+        }
+      },
+      "title": "api: list theater seating"
+    },
+    "theater_seatingListTheaterSeatingReq": {
+      "type": "object",
+      "properties": {
+        "filterBase": {
+          "$ref": "#/definitions/commonFilterBase"
+        },
+        "filter": {
+          "$ref": "#/definitions/theater_seatingFilterListTheaterSeating"
+        }
+      }
+    },
+    "theater_seatingListTheaterSeatingRes": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/modelTheaterSeatingModel"
           }
         }
       }
