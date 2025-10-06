@@ -28,7 +28,7 @@ message UpdateTheaterSeatingRes {
 }
 // api: list theater seating
 message FilterListTheaterSeating {
-
+    string cinema_room_id = 1;
 }
 
 message ListTheaterSeatingReq {

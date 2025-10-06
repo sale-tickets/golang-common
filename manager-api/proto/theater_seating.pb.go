@@ -226,6 +226,7 @@ func (x *UpdateTheaterSeatingRes) GetListId() []string {
 // api: list theater seating
 type FilterListTheaterSeating struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	CinemaRoomId  string                 `protobuf:"bytes,1,opt,name=cinema_room_id,json=cinemaRoomId,proto3" json:"cinema_room_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -258,6 +259,13 @@ func (x *FilterListTheaterSeating) ProtoReflect() protoreflect.Message {
 // Deprecated: Use FilterListTheaterSeating.ProtoReflect.Descriptor instead.
 func (*FilterListTheaterSeating) Descriptor() ([]byte, []int) {
 	return file_manager_api_api_theater_seating_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *FilterListTheaterSeating) GetCinemaRoomId() string {
+	if x != nil {
+		return x.CinemaRoomId
+	}
+	return ""
 }
 
 type ListTheaterSeatingReq struct {
@@ -379,8 +387,9 @@ const file_manager_api_api_theater_seating_proto_rawDesc = "" +
 	"\tis_ignore\x18\x02 \x01(\bR\bisIgnore\x126\n" +
 	"\btheaters\x18\x03 \x03(\v2\x1a.model.TheaterSeatingModelR\btheaters\"2\n" +
 	"\x17UpdateTheaterSeatingRes\x12\x17\n" +
-	"\alist_id\x18\x01 \x03(\tR\x06listId\"\x1a\n" +
-	"\x18FilterListTheaterSeating\"\x8f\x01\n" +
+	"\alist_id\x18\x01 \x03(\tR\x06listId\"@\n" +
+	"\x18FilterListTheaterSeating\x12$\n" +
+	"\x0ecinema_room_id\x18\x01 \x01(\tR\fcinemaRoomId\"\x8f\x01\n" +
 	"\x15ListTheaterSeatingReq\x123\n" +
 	"\vfilter_base\x18\x01 \x01(\v2\x12.common.FilterBaseR\n" +
 	"filterBase\x12A\n" +
