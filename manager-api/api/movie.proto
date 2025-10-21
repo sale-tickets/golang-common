@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package movie;
+
+option go_package = "./manager-api/proto;manager_api";
+
+import "manager-api/api/common.proto";
+import "manager-api/api/model.proto";
+import "third-party/google/api/annotations.proto";
+
+message CreateMovieReq {
+    common.Context ctx = 1;
+    model.MovieModel data = 2;
+}
+
+message CreateMovieRes {
+    model.MovieModel data = 1;
+}
+
+message UpdateMovieReq {
+    common.Context ctx = 1;
+    string id = 2;
+    model.MovieModel data = 3;
+}
+
+message UpdateMovieRes {
+    model.MovieModel data = 1;
+}
+
+message MovieFilter {
+    string name = 1;
+    repeated string category_id = 2;
+}
+message ListMovieReq {
+    common.FilterBase filter_base = 1;
+    MovieFilter filter = 2;
+}
+message ListMovieRes {
+    repeated model.MovieModel data = 1;
+}
+
+service Movie {
+    rpc Create (CreateMovieReq) returns (CreateMovieRes) {
+        option (google.api.http) = {
+            post: "/api/v1/movie/create"
+            body: "*"
+        };
+    };
+    rpc Update (UpdateMovieReq) returns (UpdateMovieRes) {
+        option (google.api.http) = {
+            put: "/api/v1/movie/update"
+            body: "*"
+        };
+    };
+    rpc List (ListMovieReq) returns (ListMovieRes) {
+        option (google.api.http) = {
+            post: "/api/v1/movie"
+            body: "*"
+        };
+    };
+}

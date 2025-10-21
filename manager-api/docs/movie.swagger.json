@@ -1,0 +1,274 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "manager-api/api/movie.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Movie"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/movie": {
+      "post": {
+        "operationId": "Movie_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/movieListMovieRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/movieListMovieReq"
+            }
+          }
+        ],
+        "tags": [
+          "Movie"
+        ]
+      }
+    },
+    "/api/v1/movie/create": {
+      "post": {
+        "operationId": "Movie_Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/movieCreateMovieRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/movieCreateMovieReq"
+            }
+          }
+        ],
+        "tags": [
+          "Movie"
+        ]
+      }
+    },
+    "/api/v1/movie/update": {
+      "put": {
+        "operationId": "Movie_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/movieUpdateMovieRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/movieUpdateMovieReq"
+            }
+          }
+        ],
+        "tags": [
+          "Movie"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "commonContext": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "commonFilterBase": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "modelMovieModel": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        }
+      }
+    },
+    "movieCreateMovieReq": {
+      "type": "object",
+      "properties": {
+        "ctx": {
+          "$ref": "#/definitions/commonContext"
+        },
+        "data": {
+          "$ref": "#/definitions/modelMovieModel"
+        }
+      }
+    },
+    "movieCreateMovieRes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/modelMovieModel"
+        }
+      }
+    },
+    "movieListMovieReq": {
+      "type": "object",
+      "properties": {
+        "filterBase": {
+          "$ref": "#/definitions/commonFilterBase"
+        },
+        "filter": {
+          "$ref": "#/definitions/movieMovieFilter"
+        }
+      }
+    },
+    "movieListMovieRes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/modelMovieModel"
+          }
+        }
+      }
+    },
+    "movieMovieFilter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "movieUpdateMovieReq": {
+      "type": "object",
+      "properties": {
+        "ctx": {
+          "$ref": "#/definitions/commonContext"
+        },
+        "id": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/modelMovieModel"
+        }
+      }
+    },
+    "movieUpdateMovieRes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/modelMovieModel"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

@@ -29,3 +29,13 @@ message TheaterSeatingModel {
     string row_index = 6;
     string col_index = 7;
 }
+
+message MovieModel {
+    string uuid = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    repeated string category_id = 4;
+    string name = 5;
+    string description = 6;
+    string thumbnail = 7;
+}

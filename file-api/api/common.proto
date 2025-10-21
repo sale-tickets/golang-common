@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "./manager-api/proto;manager_api";
+option go_package = "./file-api/proto;file_api";
 
 message FilterBase {
     int32 limit = 1;

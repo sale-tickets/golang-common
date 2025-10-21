@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ticket;
+
+option go_package="./ticket-api/proto;ticket_api";
+
+import "ticket-api/api/model.proto";
+import "third-party/google/api/annotations.proto";
+
+message CreateTicketReq {
+    string movie_screening = 1;
+    repeated model.TicketModel data = 2;
+}
+
+message CreateTicketRes {
+    repeated string uuid = 1;
+}
+
+service TicketService {
+    rpc Create (CreateTicketReq) returns (CreateTicketRes) {
+        option (google.api.http) = {
+            post: "/api/v1/ticket/create"
+            body: "*"
+        };
+    };
+}

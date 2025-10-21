@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package file_api;
+
+option go_package = "./file-api/proto;file_api";
+
+import "file-api/api/common.proto";
+import "file-api/api/model.proto";
+import "third-party/google/api/annotations.proto";
+
+message CreateTicketFileReq {
+    common.Context ctx = 1;
+    repeated model.FileModel data = 2;
+}
+
+message CreateTicketFileRes {
+    repeated model.FileModel data = 1;
+}
+
+service File {
+    rpc Create (CreateTicketFileReq) returns (CreateTicketFileRes) {
+        option (google.api.http) = {
+            post: "/api/v1/file-api/create"
+            body: "*"
+        };
+    };
+}

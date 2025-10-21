@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package model;
+
+option go_package = "./file-api/proto;file_api";
+
+message FileModel {
+    string uuid = 1;
+    string model = 2;
+    string target_id = 3;
+    string path = 4;
+    string file_type = 5;
+    string href_edit = 6;
+}

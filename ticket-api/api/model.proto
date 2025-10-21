@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package model;
+
+option go_package = "./ticket-api/proto;ticket_api";
+
+message TicketModel {
+    string uuid = 1;
+    string movie_screening_id = 2;
+    string theater_seating_id = 3;
+    float price = 4;
+}

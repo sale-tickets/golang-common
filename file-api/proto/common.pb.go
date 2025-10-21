@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.9
 // 	protoc        v3.21.12
-// source: manager-api/api/common.proto
+// source: file-api/api/common.proto
 
-package manager_api
+package file_api
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -31,7 +31,7 @@ type FilterBase struct {
 
 func (x *FilterBase) Reset() {
 	*x = FilterBase{}
-	mi := &file_manager_api_api_common_proto_msgTypes[0]
+	mi := &file_file_api_api_common_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *FilterBase) String() string {
 func (*FilterBase) ProtoMessage() {}
 
 func (x *FilterBase) ProtoReflect() protoreflect.Message {
-	mi := &file_manager_api_api_common_proto_msgTypes[0]
+	mi := &file_file_api_api_common_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *FilterBase) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FilterBase.ProtoReflect.Descriptor instead.
 func (*FilterBase) Descriptor() ([]byte, []int) {
-	return file_manager_api_api_common_proto_rawDescGZIP(), []int{0}
+	return file_file_api_api_common_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *FilterBase) GetLimit() int32 {
@@ -82,7 +82,7 @@ type Context struct {
 
 func (x *Context) Reset() {
 	*x = Context{}
-	mi := &file_manager_api_api_common_proto_msgTypes[1]
+	mi := &file_file_api_api_common_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -94,7 +94,7 @@ func (x *Context) String() string {
 func (*Context) ProtoMessage() {}
 
 func (x *Context) ProtoReflect() protoreflect.Message {
-	mi := &file_manager_api_api_common_proto_msgTypes[1]
+	mi := &file_file_api_api_common_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -107,7 +107,7 @@ func (x *Context) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Context.ProtoReflect.Descriptor instead.
 func (*Context) Descriptor() ([]byte, []int) {
-	return file_manager_api_api_common_proto_rawDescGZIP(), []int{1}
+	return file_file_api_api_common_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Context) GetUserId() string {
@@ -117,36 +117,36 @@ func (x *Context) GetUserId() string {
 	return ""
 }
 
-var File_manager_api_api_common_proto protoreflect.FileDescriptor
+var File_file_api_api_common_proto protoreflect.FileDescriptor
 
-const file_manager_api_api_common_proto_rawDesc = "" +
+const file_file_api_api_common_proto_rawDesc = "" +
 	"\n" +
-	"\x1cmanager-api/api/common.proto\x12\x06common\":\n" +
+	"\x19file-api/api/common.proto\x12\x06common\":\n" +
 	"\n" +
 	"FilterBase\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x02 \x01(\x05R\x06offset\"\"\n" +
 	"\aContext\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userIdB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\auser_id\x18\x01 \x01(\tR\x06userIdB\x1bZ\x19./file-api/proto;file_apib\x06proto3"
 
 var (
-	file_manager_api_api_common_proto_rawDescOnce sync.Once
-	file_manager_api_api_common_proto_rawDescData []byte
+	file_file_api_api_common_proto_rawDescOnce sync.Once
+	file_file_api_api_common_proto_rawDescData []byte
 )
 
-func file_manager_api_api_common_proto_rawDescGZIP() []byte {
-	file_manager_api_api_common_proto_rawDescOnce.Do(func() {
-		file_manager_api_api_common_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_manager_api_api_common_proto_rawDesc), len(file_manager_api_api_common_proto_rawDesc)))
+func file_file_api_api_common_proto_rawDescGZIP() []byte {
+	file_file_api_api_common_proto_rawDescOnce.Do(func() {
+		file_file_api_api_common_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_file_api_api_common_proto_rawDesc), len(file_file_api_api_common_proto_rawDesc)))
 	})
-	return file_manager_api_api_common_proto_rawDescData
+	return file_file_api_api_common_proto_rawDescData
 }
 
-var file_manager_api_api_common_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_manager_api_api_common_proto_goTypes = []any{
+var file_file_api_api_common_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_file_api_api_common_proto_goTypes = []any{
 	(*FilterBase)(nil), // 0: common.FilterBase
 	(*Context)(nil),    // 1: common.Context
 }
-var file_manager_api_api_common_proto_depIdxs = []int32{
+var file_file_api_api_common_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -154,26 +154,26 @@ var file_manager_api_api_common_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_manager_api_api_common_proto_init() }
-func file_manager_api_api_common_proto_init() {
-	if File_manager_api_api_common_proto != nil {
+func init() { file_file_api_api_common_proto_init() }
+func file_file_api_api_common_proto_init() {
+	if File_file_api_api_common_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_manager_api_api_common_proto_rawDesc), len(file_manager_api_api_common_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_file_api_api_common_proto_rawDesc), len(file_file_api_api_common_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_manager_api_api_common_proto_goTypes,
-		DependencyIndexes: file_manager_api_api_common_proto_depIdxs,
-		MessageInfos:      file_manager_api_api_common_proto_msgTypes,
+		GoTypes:           file_file_api_api_common_proto_goTypes,
+		DependencyIndexes: file_file_api_api_common_proto_depIdxs,
+		MessageInfos:      file_file_api_api_common_proto_msgTypes,
 	}.Build()
-	File_manager_api_api_common_proto = out.File
-	file_manager_api_api_common_proto_goTypes = nil
-	file_manager_api_api_common_proto_depIdxs = nil
+	File_file_api_api_common_proto = out.File
+	file_file_api_api_common_proto_goTypes = nil
+	file_file_api_api_common_proto_depIdxs = nil
 }
