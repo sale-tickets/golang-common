@@ -68,9 +68,7 @@
         "tags": [
           "Movie"
         ]
-      }
-    },
-    "/api/v1/movie/create": {
+      },
       "post": {
         "operationId": "Movie_Create",
         "responses": {
@@ -100,9 +98,7 @@
         "tags": [
           "Movie"
         ]
-      }
-    },
-    "/api/v1/movie/update": {
+      },
       "put": {
         "operationId": "Movie_Update",
         "responses": {

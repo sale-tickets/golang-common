@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/categoryCreateCategoryRes"
+              "$ref": "#/definitions/categoryListCategoryRes"
             }
           },
           "default": {
@@ -35,31 +35,27 @@
         },
         "parameters": [
           {
-            "name": "data.uuid",
+            "name": "filterBase.limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filterBase.offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filter.name",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "data.createdAt",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.updatedAt",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.name",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.code",
+            "name": "filter.code",
             "in": "query",
             "required": false,
             "type": "string"
@@ -102,6 +98,17 @@
     }
   },
   "definitions": {
+    "categoryCategoryFilter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
     "categoryCreateCategoryReq": {
       "type": "object",
       "properties": {
@@ -115,6 +122,31 @@
       "properties": {
         "data": {
           "$ref": "#/definitions/modelCategoryModel"
+        }
+      }
+    },
+    "categoryListCategoryRes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/modelCategoryModel"
+          }
+        }
+      }
+    },
+    "commonFilterBase": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },

@@ -66,7 +66,7 @@ var filter_Category_List_0 = &utilities.DoubleArray{Encoding: map[string]int{}, 
 
 func request_Category_List_0(ctx context.Context, marshaler runtime.Marshaler, client CategoryClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CreateCategoryReq
+		protoReq ListCategoryReq
 		metadata runtime.ServerMetadata
 	)
 	if req.Body != nil {
@@ -84,7 +84,7 @@ func request_Category_List_0(ctx context.Context, marshaler runtime.Marshaler, c
 
 func local_request_Category_List_0(ctx context.Context, marshaler runtime.Marshaler, server CategoryServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CreateCategoryReq
+		protoReq ListCategoryReq
 		metadata runtime.ServerMetadata
 	)
 	if err := req.ParseForm(); err != nil {

@@ -136,7 +136,7 @@ func RegisterMovieHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/movie.Movie/Create", runtime.WithHTTPPathPattern("/api/v1/movie/create"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/movie.Movie/Create", runtime.WithHTTPPathPattern("/api/v1/movie"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -156,7 +156,7 @@ func RegisterMovieHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/movie.Movie/Update", runtime.WithHTTPPathPattern("/api/v1/movie/update"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/movie.Movie/Update", runtime.WithHTTPPathPattern("/api/v1/movie"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -234,7 +234,7 @@ func RegisterMovieHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/movie.Movie/Create", runtime.WithHTTPPathPattern("/api/v1/movie/create"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/movie.Movie/Create", runtime.WithHTTPPathPattern("/api/v1/movie"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -251,7 +251,7 @@ func RegisterMovieHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/movie.Movie/Update", runtime.WithHTTPPathPattern("/api/v1/movie/update"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/movie.Movie/Update", runtime.WithHTTPPathPattern("/api/v1/movie"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -285,8 +285,8 @@ func RegisterMovieHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 }
 
 var (
-	pattern_Movie_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "movie", "create"}, ""))
-	pattern_Movie_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "movie", "update"}, ""))
+	pattern_Movie_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "movie"}, ""))
+	pattern_Movie_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "movie"}, ""))
 	pattern_Movie_List_0   = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "movie"}, ""))
 )
 

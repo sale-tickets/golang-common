@@ -42,13 +42,13 @@ message ListMovieRes {
 service Movie {
     rpc Create (CreateMovieReq) returns (CreateMovieRes) {
         option (google.api.http) = {
-            post: "/api/v1/movie/create"
+            post: "/api/v1/movie"
             body: "*"
         };
     };
     rpc Update (UpdateMovieReq) returns (UpdateMovieRes) {
         option (google.api.http) = {
-            put: "/api/v1/movie/update"
+            put: "/api/v1/movie"
             body: "*"
         };
     };
