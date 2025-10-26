@@ -17,7 +17,7 @@
   ],
   "paths": {
     "/api/v1/theater-seating": {
-      "post": {
+      "get": {
         "operationId": "TheaterSeating_ListTheaterSeating",
         "responses": {
           "200": {
@@ -35,12 +35,24 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/theater_seatingListTheaterSeatingReq"
-            }
+            "name": "filterBase.limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filterBase.offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filter.cinemaRoomId",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -187,17 +199,6 @@
         }
       },
       "title": "api: list theater seating"
-    },
-    "theater_seatingListTheaterSeatingReq": {
-      "type": "object",
-      "properties": {
-        "filterBase": {
-          "$ref": "#/definitions/commonFilterBase"
-        },
-        "filter": {
-          "$ref": "#/definitions/theater_seatingFilterListTheaterSeating"
-        }
-      }
     },
     "theater_seatingListTheaterSeatingRes": {
       "type": "object",

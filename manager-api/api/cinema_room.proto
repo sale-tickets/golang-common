@@ -69,8 +69,7 @@ service CinemaRoomService {
     };
     rpc List (ListCinemaRoomReq) returns (ListCinemaRoomRes) {
         option (google.api.http) = {
-            post: "/api/v1/cinema-room"
-            body: "*"
+            get: "/api/v1/cinema-room"
         };
     };
 }

@@ -54,8 +54,7 @@ service Movie {
     };
     rpc List (ListMovieReq) returns (ListMovieRes) {
         option (google.api.http) = {
-            post: "/api/v1/movie"
-            body: "*"
+            get: "/api/v1/movie"
         };
     };
 }

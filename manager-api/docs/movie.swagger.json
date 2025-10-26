@@ -17,7 +17,7 @@
   ],
   "paths": {
     "/api/v1/movie": {
-      "post": {
+      "get": {
         "operationId": "Movie_List",
         "responses": {
           "200": {
@@ -35,12 +35,34 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/movieListMovieReq"
-            }
+            "name": "filterBase.limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filterBase.offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filter.name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.categoryId",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -180,17 +202,6 @@
       "properties": {
         "data": {
           "$ref": "#/definitions/modelMovieModel"
-        }
-      }
-    },
-    "movieListMovieReq": {
-      "type": "object",
-      "properties": {
-        "filterBase": {
-          "$ref": "#/definitions/commonFilterBase"
-        },
-        "filter": {
-          "$ref": "#/definitions/movieMovieFilter"
         }
       }
     },

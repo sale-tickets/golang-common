@@ -51,8 +51,7 @@ service TheaterSeating {
     };
     rpc ListTheaterSeating (ListTheaterSeatingReq) returns (ListTheaterSeatingRes) {
         option (google.api.http) = {
-            post: "/api/v1/theater-seating"
-            body: "*"
+            get: "/api/v1/theater-seating"
         };
     };
 }

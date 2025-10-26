@@ -17,7 +17,7 @@
   ],
   "paths": {
     "/api/v1/cinema-room": {
-      "post": {
+      "get": {
         "operationId": "CinemaRoomService_List",
         "responses": {
           "200": {
@@ -35,12 +35,24 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cinema_roomListCinemaRoomReq"
-            }
+            "name": "filterBase.limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filterBase.offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "filter.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -198,17 +210,6 @@
         }
       },
       "title": "api: list cinema room"
-    },
-    "cinema_roomListCinemaRoomReq": {
-      "type": "object",
-      "properties": {
-        "filterBase": {
-          "$ref": "#/definitions/commonFilterBase"
-        },
-        "filter": {
-          "$ref": "#/definitions/cinema_roomFilterCinemaRoom"
-        }
-      }
     },
     "cinema_roomListCinemaRoomRes": {
       "type": "object",

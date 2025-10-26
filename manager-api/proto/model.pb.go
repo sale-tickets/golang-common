@@ -357,6 +357,82 @@ func (x *MovieModel) GetThumbnail() string {
 	return ""
 }
 
+type CategoryModel struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Code          string                 `protobuf:"bytes,5,opt,name=code,proto3" json:"code,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CategoryModel) Reset() {
+	*x = CategoryModel{}
+	mi := &file_manager_api_api_model_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CategoryModel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CategoryModel) ProtoMessage() {}
+
+func (x *CategoryModel) ProtoReflect() protoreflect.Message {
+	mi := &file_manager_api_api_model_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CategoryModel.ProtoReflect.Descriptor instead.
+func (*CategoryModel) Descriptor() ([]byte, []int) {
+	return file_manager_api_api_model_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CategoryModel) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
+func (x *CategoryModel) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *CategoryModel) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+func (x *CategoryModel) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CategoryModel) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
 var File_manager_api_api_model_proto protoreflect.FileDescriptor
 
 const file_manager_api_api_model_proto_rawDesc = "" +
@@ -398,7 +474,15 @@ const file_manager_api_api_model_proto_rawDesc = "" +
 	"categoryId\x12\x12\n" +
 	"\x04name\x18\x05 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x06 \x01(\tR\vdescription\x12\x1c\n" +
-	"\tthumbnail\x18\a \x01(\tR\tthumbnailB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\tthumbnail\x18\a \x01(\tR\tthumbnail\"\x89\x01\n" +
+	"\rCategoryModel\x12\x12\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\x12\n" +
+	"\x04name\x18\x04 \x01(\tR\x04name\x12\x12\n" +
+	"\x04code\x18\x05 \x01(\tR\x04codeB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_model_proto_rawDescOnce sync.Once
@@ -412,12 +496,13 @@ func file_manager_api_api_model_proto_rawDescGZIP() []byte {
 	return file_manager_api_api_model_proto_rawDescData
 }
 
-var file_manager_api_api_model_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_manager_api_api_model_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_manager_api_api_model_proto_goTypes = []any{
 	(*CinemaRoomModel)(nil),     // 0: model.CinemaRoomModel
 	(*MovieTheaterModel)(nil),   // 1: model.MovieTheaterModel
 	(*TheaterSeatingModel)(nil), // 2: model.TheaterSeatingModel
 	(*MovieModel)(nil),          // 3: model.MovieModel
+	(*CategoryModel)(nil),       // 4: model.CategoryModel
 }
 var file_manager_api_api_model_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -438,7 +523,7 @@ func file_manager_api_api_model_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_manager_api_api_model_proto_rawDesc), len(file_manager_api_api_model_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package category;
+
+option go_package = "./manager-api/proto;manager_api";
+
+import "manager-api/api/model.proto";
+import "manager-api/api/common.proto";
+import "third-party/google/api/annotations.proto";
+
+message CreateCategoryReq {
+    model.CategoryModel data = 1;
+}
+message CreateCategoryRes {
+    model.CategoryModel data = 1;
+}
+
+message CategoryFilter {
+    string name = 1;
+    string code = 2;
+}
+message ListCategoryReq {
+    common.FilterBase filter_base = 1;
+    CategoryFilter filter = 2;
+}
+message ListCategoryRes {
+    repeated model.CategoryModel data = 1;
+}
+
+service Category {
+    rpc Create (CreateCategoryReq) returns (CreateCategoryRes) {
+        option (google.api.http) = {
+            post: "/api/v1/category"
+            body: "*"
+        };
+    };
+    rpc List (CreateCategoryReq) returns (CreateCategoryRes) {
+        option (google.api.http) = {
+            get: "/api/v1/category"
+        };
+    };
+}

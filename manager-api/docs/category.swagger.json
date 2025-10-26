@@ -1,0 +1,170 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "manager-api/api/category.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Category"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/category": {
+      "get": {
+        "operationId": "Category_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/categoryCreateCategoryRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "data.uuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.createdAt",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.updatedAt",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Category"
+        ]
+      },
+      "post": {
+        "operationId": "Category_Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/categoryCreateCategoryRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/categoryCreateCategoryReq"
+            }
+          }
+        ],
+        "tags": [
+          "Category"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "categoryCreateCategoryReq": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/modelCategoryModel"
+        }
+      }
+    },
+    "categoryCreateCategoryRes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/modelCategoryModel"
+        }
+      }
+    },
+    "modelCategoryModel": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
