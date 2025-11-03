@@ -275,10 +275,10 @@ const file_manager_api_api_category_proto_rawDesc = "" +
 	"filterBase\x120\n" +
 	"\x06filter\x18\x02 \x01(\v2\x18.category.CategoryFilterR\x06filter\";\n" +
 	"\x0fListCategoryRes\x12(\n" +
-	"\x04data\x18\x01 \x03(\v2\x14.model.CategoryModelR\x04data2\xc3\x01\n" +
+	"\x04data\x18\x01 \x03(\v2\x14.model.CategoryModelR\x04data2\xcb\x01\n" +
 	"\bCategory\x12_\n" +
-	"\x06Create\x12\x1b.category.CreateCategoryReq\x1a\x1b.category.CreateCategoryRes\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/api/v1/category\x12V\n" +
-	"\x04List\x12\x19.category.ListCategoryReq\x1a\x19.category.ListCategoryRes\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/api/v1/categoryB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\x06Create\x12\x1b.category.CreateCategoryReq\x1a\x1b.category.CreateCategoryRes\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/api/v1/category\x12^\n" +
+	"\x04List\x12\x19.category.ListCategoryReq\x1a\x19.category.ListCategoryRes\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/api/v1/category/listB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_category_proto_rawDescOnce sync.Once

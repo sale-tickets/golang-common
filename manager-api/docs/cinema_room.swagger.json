@@ -16,50 +16,6 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/cinema-room": {
-      "get": {
-        "operationId": "CinemaRoomService_List",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/cinema_roomListCinemaRoomRes"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "filterBase.limit",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "filterBase.offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "filter.code",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "CinemaRoomService"
-        ]
-      }
-    },
     "/api/v1/cinema-room/create": {
       "post": {
         "operationId": "CinemaRoomService_Create",
@@ -84,6 +40,38 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/cinema_roomCreateCinemaRoomReq"
+            }
+          }
+        ],
+        "tags": [
+          "CinemaRoomService"
+        ]
+      }
+    },
+    "/api/v1/cinema-room/list": {
+      "post": {
+        "operationId": "CinemaRoomService_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cinema_roomListCinemaRoomRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cinema_roomListCinemaRoomReq"
             }
           }
         ],
@@ -210,6 +198,17 @@
         }
       },
       "title": "api: list cinema room"
+    },
+    "cinema_roomListCinemaRoomReq": {
+      "type": "object",
+      "properties": {
+        "filterBase": {
+          "$ref": "#/definitions/commonFilterBase"
+        },
+        "filter": {
+          "$ref": "#/definitions/cinema_roomFilterCinemaRoom"
+        }
+      }
     },
     "cinema_roomListCinemaRoomRes": {
       "type": "object",

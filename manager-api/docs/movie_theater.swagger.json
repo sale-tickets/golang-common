@@ -17,7 +17,7 @@
   ],
   "paths": {
     "/api/v1/movie-theater": {
-      "get": {
+      "post": {
         "operationId": "MovieTheater_GetList",
         "responses": {
           "200": {
@@ -35,30 +35,12 @@
         },
         "parameters": [
           {
-            "name": "filterBase.limit",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "filterBase.offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "filter.name",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "filter.address",
-            "in": "query",
-            "required": false,
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/movie_theaterGetListMovieTheaterReq"
+            }
           }
         ],
         "tags": [
@@ -223,6 +205,18 @@
           "type": "string"
         }
       }
+    },
+    "movie_theaterGetListMovieTheaterReq": {
+      "type": "object",
+      "properties": {
+        "filterBase": {
+          "$ref": "#/definitions/commonFilterBase"
+        },
+        "filter": {
+          "$ref": "#/definitions/movie_theaterMovieTheaterFilterReq"
+        }
+      },
+      "title": "api: get list"
     },
     "movie_theaterGetListMovieTheaterRes": {
       "type": "object",

@@ -73,7 +73,8 @@ service MovieTheater {
     };
     rpc GetList(GetListMovieTheaterReq) returns (GetListMovieTheaterRes) {
         option (google.api.http) = {
-            get: "/api/v1/movie-theater"
+            post: "/api/v1/movie-theater"
+            body: "*"
         };
     };
     rpc Detail (DetailMovieTheaterReq) returns (DetailMovieTheaterRes) {

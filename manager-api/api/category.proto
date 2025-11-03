@@ -36,7 +36,8 @@ service Category {
     };
     rpc List (ListCategoryReq) returns (ListCategoryRes) {
         option (google.api.http) = {
-            get: "/api/v1/category"
+            post: "/api/v1/category/list"
+            body: "*"
         };
     };
 }

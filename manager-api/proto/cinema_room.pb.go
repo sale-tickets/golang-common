@@ -528,12 +528,12 @@ const file_manager_api_api_cinema_room_proto_rawDesc = "" +
 	"\x06filter\x18\x02 \x01(\v2\x1d.cinema_room.FilterCinemaRoomR\x06filter\"U\n" +
 	"\x11ListCinemaRoomRes\x12*\n" +
 	"\x04data\x18\x01 \x03(\v2\x16.model.CinemaRoomModelR\x04data\x12\x14\n" +
-	"\x05total\x18\x02 \x01(\x05R\x05total2\xd4\x03\n" +
+	"\x05total\x18\x02 \x01(\x05R\x05total2\xdc\x03\n" +
 	"\x11CinemaRoomService\x12s\n" +
 	"\x06Create\x12 .cinema_room.CreateCinemaRoomReq\x1a .cinema_room.CreateCinemaRoomRes\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/api/v1/cinema-room/create\x12s\n" +
 	"\x06Update\x12 .cinema_room.UpdateCinemaRoomReq\x1a .cinema_room.UpdateCinemaRoomRes\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\x1a\x1a/api/v1/cinema-room/update\x12p\n" +
-	"\x06Detail\x12 .cinema_room.DetailCinemaRoomReq\x1a .cinema_room.DetailCinemaRoomRes\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/v1/cinema-room/{uuid}\x12c\n" +
-	"\x04List\x12\x1e.cinema_room.ListCinemaRoomReq\x1a\x1e.cinema_room.ListCinemaRoomRes\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/api/v1/cinema-roomB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\x06Detail\x12 .cinema_room.DetailCinemaRoomReq\x1a .cinema_room.DetailCinemaRoomRes\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/v1/cinema-room/{uuid}\x12k\n" +
+	"\x04List\x12\x1e.cinema_room.ListCinemaRoomReq\x1a\x1e.cinema_room.ListCinemaRoomRes\"#\x82\xd3\xe4\x93\x02\x1d:\x01*\"\x18/api/v1/cinema-room/listB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_cinema_room_proto_rawDescOnce sync.Once

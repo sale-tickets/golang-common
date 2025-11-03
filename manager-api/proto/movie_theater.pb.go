@@ -630,11 +630,11 @@ const file_manager_api_api_movie_theater_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\tR\tupdatedAt2\x80\x04\n" +
+	"updated_at\x18\x06 \x01(\tR\tupdatedAt2\x83\x04\n" +
 	"\fMovieTheater\x12}\n" +
 	"\x06Create\x12$.movie_theater.CreateMovieTheaterReq\x1a$.movie_theater.CreateMovieTheaterRes\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/api/v1/movie-theater/create\x12}\n" +
-	"\x06Update\x12$.movie_theater.UpdateMovieTheaterReq\x1a$.movie_theater.UpdateMovieTheaterRes\"'\x82\xd3\xe4\x93\x02!:\x01*\x1a\x1c/api/v1/movie-theater/update\x12v\n" +
-	"\aGetList\x12%.movie_theater.GetListMovieTheaterReq\x1a%.movie_theater.GetListMovieTheaterRes\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/api/v1/movie-theater\x12z\n" +
+	"\x06Update\x12$.movie_theater.UpdateMovieTheaterReq\x1a$.movie_theater.UpdateMovieTheaterRes\"'\x82\xd3\xe4\x93\x02!:\x01*\x1a\x1c/api/v1/movie-theater/update\x12y\n" +
+	"\aGetList\x12%.movie_theater.GetListMovieTheaterReq\x1a%.movie_theater.GetListMovieTheaterRes\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/api/v1/movie-theater\x12z\n" +
 	"\x06Detail\x12$.movie_theater.DetailMovieTheaterReq\x1a$.movie_theater.DetailMovieTheaterRes\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/api/v1/movie-theater/{uuid}B!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (

@@ -16,50 +16,6 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/theater-seating": {
-      "get": {
-        "operationId": "TheaterSeating_ListTheaterSeating",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/theater_seatingListTheaterSeatingRes"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "filterBase.limit",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "filterBase.offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "filter.cinemaRoomId",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "TheaterSeating"
-        ]
-      }
-    },
     "/api/v1/theater-seating/create": {
       "post": {
         "operationId": "TheaterSeating_CreateTheaterSeating",
@@ -84,6 +40,38 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/theater_seatingCreateTheaterSeatingReq"
+            }
+          }
+        ],
+        "tags": [
+          "TheaterSeating"
+        ]
+      }
+    },
+    "/api/v1/theater-seating/list": {
+      "post": {
+        "operationId": "TheaterSeating_ListTheaterSeating",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/theater_seatingListTheaterSeatingRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/theater_seatingListTheaterSeatingReq"
             }
           }
         ],
@@ -132,6 +120,9 @@
           "type": "string"
         },
         "colIndex": {
+          "type": "string"
+        },
+        "code": {
           "type": "string"
         }
       }
@@ -199,6 +190,17 @@
         }
       },
       "title": "api: list theater seating"
+    },
+    "theater_seatingListTheaterSeatingReq": {
+      "type": "object",
+      "properties": {
+        "filterBase": {
+          "$ref": "#/definitions/commonFilterBase"
+        },
+        "filter": {
+          "$ref": "#/definitions/theater_seatingFilterListTheaterSeating"
+        }
+      }
     },
     "theater_seatingListTheaterSeatingRes": {
       "type": "object",

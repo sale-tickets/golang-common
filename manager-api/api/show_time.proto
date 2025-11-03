@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package show_time;
+
+option go_package = "./manager-api/proto;manager_api";
+
+import "manager-api/api/model.proto";
+import "third-party/google/api/annotations.proto";
+
+message CreateShowtimeReq {
+    repeated model.ShowtimeModel data = 1;
+}
+message CreateShowtimeRes {
+    repeated model.ShowtimeModel data = 1;
+}
+
+message ListShowtimeReq {
+    string movie_theater_id = 1;
+    string cinemaroom_id = 2;
+}
+message ListShowtimeRes {
+    repeated model.ShowtimeModel data = 1;
+}
+
+service Showtime {
+    rpc Create (CreateShowtimeReq) returns (CreateShowtimeRes) {
+        option (google.api.http) = {
+            post: "/api/v1/show-time"
+            body: "*"
+        };
+    };
+    rpc List (ListShowtimeReq) returns (ListShowtimeRes) {
+        option (google.api.http) = {
+            get: "/api/v1/show-time/{movie_theater_id}/{cinemaroom_id}"
+        };
+    };
+}

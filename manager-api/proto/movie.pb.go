@@ -395,11 +395,11 @@ const file_manager_api_api_movie_proto_rawDesc = "" +
 	"filterBase\x12*\n" +
 	"\x06filter\x18\x02 \x01(\v2\x12.movie.MovieFilterR\x06filter\"5\n" +
 	"\fListMovieRes\x12%\n" +
-	"\x04data\x18\x01 \x03(\v2\x11.model.MovieModelR\x04data2\xf4\x01\n" +
+	"\x04data\x18\x01 \x03(\v2\x11.model.MovieModelR\x04data2\xfc\x01\n" +
 	"\x05Movie\x12P\n" +
 	"\x06Create\x12\x15.movie.CreateMovieReq\x1a\x15.movie.CreateMovieRes\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/api/v1/movie\x12P\n" +
-	"\x06Update\x12\x15.movie.UpdateMovieReq\x1a\x15.movie.UpdateMovieRes\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\x1a\r/api/v1/movie\x12G\n" +
-	"\x04List\x12\x13.movie.ListMovieReq\x1a\x13.movie.ListMovieRes\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/movieB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\x06Update\x12\x15.movie.UpdateMovieReq\x1a\x15.movie.UpdateMovieRes\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\x1a\r/api/v1/movie\x12O\n" +
+	"\x04List\x12\x13.movie.ListMovieReq\x1a\x13.movie.ListMovieRes\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/api/v1/movie/listB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_movie_proto_rawDescOnce sync.Once

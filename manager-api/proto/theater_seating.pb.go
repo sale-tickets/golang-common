@@ -397,10 +397,10 @@ const file_manager_api_api_theater_seating_proto_rawDesc = "" +
 	"\x06filter\x18\x02 \x01(\v2).theater_seating.FilterListTheaterSeatingR\x06filter\"]\n" +
 	"\x15ListTheaterSeatingRes\x12\x14\n" +
 	"\x05total\x18\x01 \x01(\x05R\x05total\x12.\n" +
-	"\x04data\x18\x02 \x03(\v2\x1a.model.TheaterSeatingModelR\x04data2\xb0\x02\n" +
+	"\x04data\x18\x02 \x03(\v2\x1a.model.TheaterSeatingModelR\x04data2\xb8\x02\n" +
 	"\x0eTheaterSeating\x12\x95\x01\n" +
-	"\x14CreateTheaterSeating\x12(.theater_seating.CreateTheaterSeatingReq\x1a(.theater_seating.CreateTheaterSeatingRes\")\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/api/v1/theater-seating/create\x12\x85\x01\n" +
-	"\x12ListTheaterSeating\x12&.theater_seating.ListTheaterSeatingReq\x1a&.theater_seating.ListTheaterSeatingRes\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/api/v1/theater-seatingB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\x14CreateTheaterSeating\x12(.theater_seating.CreateTheaterSeatingReq\x1a(.theater_seating.CreateTheaterSeatingRes\")\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/api/v1/theater-seating/create\x12\x8d\x01\n" +
+	"\x12ListTheaterSeating\x12&.theater_seating.ListTheaterSeatingReq\x1a&.theater_seating.ListTheaterSeatingRes\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/api/v1/theater-seating/listB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_theater_seating_proto_rawDescOnce sync.Once

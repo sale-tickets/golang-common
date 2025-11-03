@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "manager-api/api/category.proto",
+    "title": "manager-api/api/show_time.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "Category"
+      "name": "Showtime"
     }
   ],
   "consumes": [
@@ -16,14 +16,14 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/category": {
+    "/api/v1/show-time": {
       "post": {
-        "operationId": "Category_Create",
+        "operationId": "Showtime_Create",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/categoryCreateCategoryRes"
+              "$ref": "#/definitions/show_timeCreateShowtimeRes"
             }
           },
           "default": {
@@ -39,23 +39,23 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/categoryCreateCategoryReq"
+              "$ref": "#/definitions/show_timeCreateShowtimeReq"
             }
           }
         ],
         "tags": [
-          "Category"
+          "Showtime"
         ]
       }
     },
-    "/api/v1/category/list": {
-      "post": {
-        "operationId": "Category_List",
+    "/api/v1/show-time/{movieTheaterId}/{cinemaroomId}": {
+      "get": {
+        "operationId": "Showtime_List",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/categoryListCategoryRes"
+              "$ref": "#/definitions/show_timeListShowtimeRes"
             }
           },
           "default": {
@@ -67,85 +67,26 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
+            "name": "movieTheaterId",
+            "in": "path",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/categoryListCategoryReq"
-            }
+            "type": "string"
+          },
+          {
+            "name": "cinemaroomId",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "tags": [
-          "Category"
+          "Showtime"
         ]
       }
     }
   },
   "definitions": {
-    "categoryCategoryFilter": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "code": {
-          "type": "string"
-        }
-      }
-    },
-    "categoryCreateCategoryReq": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/modelCategoryModel"
-        }
-      }
-    },
-    "categoryCreateCategoryRes": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/modelCategoryModel"
-        }
-      }
-    },
-    "categoryListCategoryReq": {
-      "type": "object",
-      "properties": {
-        "filterBase": {
-          "$ref": "#/definitions/commonFilterBase"
-        },
-        "filter": {
-          "$ref": "#/definitions/categoryCategoryFilter"
-        }
-      }
-    },
-    "categoryListCategoryRes": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/modelCategoryModel"
-          }
-        }
-      }
-    },
-    "commonFilterBase": {
-      "type": "object",
-      "properties": {
-        "limit": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "offset": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "modelCategoryModel": {
+    "modelShowtimeModel": {
       "type": "object",
       "properties": {
         "uuid": {
@@ -157,11 +98,19 @@
         "updatedAt": {
           "type": "string"
         },
-        "name": {
+        "filmId": {
           "type": "string"
         },
-        "code": {
+        "cinemaRoomId": {
           "type": "string"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -189,6 +138,42 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "show_timeCreateShowtimeReq": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/modelShowtimeModel"
+          }
+        }
+      }
+    },
+    "show_timeCreateShowtimeRes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/modelShowtimeModel"
+          }
+        }
+      }
+    },
+    "show_timeListShowtimeRes": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/modelShowtimeModel"
           }
         }
       }

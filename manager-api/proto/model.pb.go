@@ -182,6 +182,7 @@ type TheaterSeatingModel struct {
 	Name             string                 `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
 	RowIndex         string                 `protobuf:"bytes,6,opt,name=row_index,json=rowIndex,proto3" json:"row_index,omitempty"`
 	ColIndex         string                 `protobuf:"bytes,7,opt,name=col_index,json=colIndex,proto3" json:"col_index,omitempty"`
+	Code             string                 `protobuf:"bytes,8,opt,name=code,proto3" json:"code,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -261,6 +262,13 @@ func (x *TheaterSeatingModel) GetRowIndex() string {
 func (x *TheaterSeatingModel) GetColIndex() string {
 	if x != nil {
 		return x.ColIndex
+	}
+	return ""
+}
+
+func (x *TheaterSeatingModel) GetCode() string {
+	if x != nil {
+		return x.Code
 	}
 	return ""
 }
@@ -433,6 +441,98 @@ func (x *CategoryModel) GetCode() string {
 	return ""
 }
 
+type ShowtimeModel struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	FilmId        string                 `protobuf:"bytes,4,opt,name=film_id,json=filmId,proto3" json:"film_id,omitempty"`
+	CinemaRoomId  string                 `protobuf:"bytes,5,opt,name=cinema_room_id,json=cinemaRoomId,proto3" json:"cinema_room_id,omitempty"`
+	StartTime     int64                  `protobuf:"varint,6,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	EndTime       int64                  `protobuf:"varint,7,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowtimeModel) Reset() {
+	*x = ShowtimeModel{}
+	mi := &file_manager_api_api_model_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowtimeModel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowtimeModel) ProtoMessage() {}
+
+func (x *ShowtimeModel) ProtoReflect() protoreflect.Message {
+	mi := &file_manager_api_api_model_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowtimeModel.ProtoReflect.Descriptor instead.
+func (*ShowtimeModel) Descriptor() ([]byte, []int) {
+	return file_manager_api_api_model_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ShowtimeModel) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
+func (x *ShowtimeModel) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *ShowtimeModel) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+func (x *ShowtimeModel) GetFilmId() string {
+	if x != nil {
+		return x.FilmId
+	}
+	return ""
+}
+
+func (x *ShowtimeModel) GetCinemaRoomId() string {
+	if x != nil {
+		return x.CinemaRoomId
+	}
+	return ""
+}
+
+func (x *ShowtimeModel) GetStartTime() int64 {
+	if x != nil {
+		return x.StartTime
+	}
+	return 0
+}
+
+func (x *ShowtimeModel) GetEndTime() int64 {
+	if x != nil {
+		return x.EndTime
+	}
+	return 0
+}
+
 var File_manager_api_api_model_proto protoreflect.FileDescriptor
 
 const file_manager_api_api_model_proto_rawDesc = "" +
@@ -453,7 +553,7 @@ const file_manager_api_api_model_proto_rawDesc = "" +
 	"\n" +
 	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\x12\n" +
 	"\x04name\x18\x04 \x01(\tR\x04name\x12\x18\n" +
-	"\aaddress\x18\x05 \x01(\tR\aaddress\"\xea\x01\n" +
+	"\aaddress\x18\x05 \x01(\tR\aaddress\"\xfe\x01\n" +
 	"\x13TheaterSeatingModel\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1d\n" +
 	"\n" +
@@ -462,7 +562,8 @@ const file_manager_api_api_model_proto_rawDesc = "" +
 	"\x12group_seating_uuid\x18\x04 \x03(\tR\x10groupSeatingUuid\x12\x12\n" +
 	"\x04name\x18\x05 \x01(\tR\x04name\x12\x1b\n" +
 	"\trow_index\x18\x06 \x01(\tR\browIndex\x12\x1b\n" +
-	"\tcol_index\x18\a \x01(\tR\bcolIndex\"\xd3\x01\n" +
+	"\tcol_index\x18\a \x01(\tR\bcolIndex\x12\x12\n" +
+	"\x04code\x18\b \x01(\tR\x04code\"\xd3\x01\n" +
 	"\n" +
 	"MovieModel\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1d\n" +
@@ -482,7 +583,18 @@ const file_manager_api_api_model_proto_rawDesc = "" +
 	"\n" +
 	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\x12\n" +
 	"\x04name\x18\x04 \x01(\tR\x04name\x12\x12\n" +
-	"\x04code\x18\x05 \x01(\tR\x04codeB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
+	"\x04code\x18\x05 \x01(\tR\x04code\"\xda\x01\n" +
+	"\rShowtimeModel\x12\x12\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\x17\n" +
+	"\afilm_id\x18\x04 \x01(\tR\x06filmId\x12$\n" +
+	"\x0ecinema_room_id\x18\x05 \x01(\tR\fcinemaRoomId\x12\x1d\n" +
+	"\n" +
+	"start_time\x18\x06 \x01(\x03R\tstartTime\x12\x19\n" +
+	"\bend_time\x18\a \x01(\x03R\aendTimeB!Z\x1f./manager-api/proto;manager_apib\x06proto3"
 
 var (
 	file_manager_api_api_model_proto_rawDescOnce sync.Once
@@ -496,13 +608,14 @@ func file_manager_api_api_model_proto_rawDescGZIP() []byte {
 	return file_manager_api_api_model_proto_rawDescData
 }
 
-var file_manager_api_api_model_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_manager_api_api_model_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_manager_api_api_model_proto_goTypes = []any{
 	(*CinemaRoomModel)(nil),     // 0: model.CinemaRoomModel
 	(*MovieTheaterModel)(nil),   // 1: model.MovieTheaterModel
 	(*TheaterSeatingModel)(nil), // 2: model.TheaterSeatingModel
 	(*MovieModel)(nil),          // 3: model.MovieModel
 	(*CategoryModel)(nil),       // 4: model.CategoryModel
+	(*ShowtimeModel)(nil),       // 5: model.ShowtimeModel
 }
 var file_manager_api_api_model_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -523,7 +636,7 @@ func file_manager_api_api_model_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_manager_api_api_model_proto_rawDesc), len(file_manager_api_api_model_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
